@@ -1,0 +1,264 @@
+openapi: 3.0.0
+info:
+  title: API SOURCE
+  version: 1.0.0
+  description: Documentación de la API SOURCE
+servers:
+  - url: http://localhost:3000
+paths:
+  /images:
+    get:
+      summary: Obtiene todas las imágenes
+      description: Obtiene una lista de todas las imágenes registradas.
+      responses:
+        '200':
+          description: Lista de imágenes
+    post:
+      summary: Crea una nueva imagen
+      description: Crea una nueva imagen con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Image'
+      responses:
+        '201':
+          description: Imagen creada exitosamente
+        '400':
+          description: Error en la creación de la imagen
+  /images/{id}:
+    get:
+      summary: Obtiene una imagen por ID
+      description: Obtiene una imagen específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la imagen a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Imagen encontrada
+        '404':
+          description: Imagen no encontrada
+    put:
+      summary: Actualiza una imagen por ID
+      description: Actualiza una imagen específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la imagen a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Image'
+      responses:
+        '200':
+          description: Imagen actualizada exitosamente
+        '400':
+          description: Error en la actualización de la imagen
+        '404':
+          description: Imagen no encontrada
+    delete:
+      summary: Elimina una imagen por ID
+      description: Elimina una imagen específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la imagen a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Imagen eliminada exitosamente
+        '404':
+          description: Imagen no encontrada
+  /sourcepyme:
+    get:
+      summary: Obtiene todas las SourcePymes
+      description: Obtiene una lista de todas las SourcePymes registradas.
+      responses:
+        '200':
+          description: Lista de SourcePymes
+    post:
+      summary: Crea una nueva SourcePyme
+      description: Crea una nueva SourcePyme con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourcePyme'
+      responses:
+        '201':
+          description: SourcePyme creada exitosamente
+        '400':
+          description: Error en la creación de la SourcePyme
+  /sourcepyme/{id}:
+    get:
+      summary: Obtiene una SourcePyme por ID
+      description: Obtiene una SourcePyme específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourcePyme a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: SourcePyme encontrada
+        '404':
+          description: SourcePyme no encontrada
+    put:
+      summary: Actualiza una SourcePyme por ID
+      description: Actualiza una SourcePyme específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourcePyme a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourcePyme'
+      responses:
+        '200':
+          description: SourcePyme actualizada exitosamente
+        '400':
+          description: Error en la actualización de la SourcePyme
+        '404':
+          description: SourcePyme no encontrada
+    delete:
+      summary: Elimina una SourcePyme por ID
+      description: Elimina una SourcePyme específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourcePyme a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: SourcePyme eliminada exitosamente
+        '404':
+          description: SourcePyme no encontrada
+  /sourceuser:
+    get:
+      summary: Obtiene todas las SourceUsers
+      description: Obtiene una lista de todas las SourceUsers registradas.
+      responses:
+        '200':
+          description: Lista de SourceUsers
+    post:
+      summary: Crea una nueva SourceUser
+      description: Crea una nueva SourceUser con los datos proporcionados.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourceUser'
+      responses:
+        '201':
+          description: SourceUser creada exitosamente
+        '400':
+          description: Error en la creación de la SourceUser
+  /sourceuser/{id}:
+    get:
+      summary: Obtiene una SourceUser por ID
+      description: Obtiene una SourceUser específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourceUser a obtener
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: SourceUser encontrada
+        '404':
+          description: SourceUser no encontrada
+    put:
+      summary: Actualiza una SourceUser por ID
+      description: Actualiza una SourceUser específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourceUser a actualizar
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SourceUser'
+      responses:
+        '200':
+          description: SourceUser actualizada exitosamente
+        '400':
+          description: Error en la actualización de la SourceUser
+        '404':
+          description: SourceUser no encontrada
+    delete:
+      summary: Elimina una SourceUser por ID
+      description: Elimina una SourceUser específica según su ID.
+      parameters:
+        - in: path
+          name: id
+          description: ID de la SourceUser a eliminar
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: SourceUser eliminada exitosamente
+        '404':
+          description: SourceUser no encontrada
+components:
+  schemas:
+    Image:
+      type: object
+      properties:
+        idImage:
+          type: integer
+        url:
+          type: string
+        idUser:
+          type: integer
+    SourcePyme:
+      type: object
+      properties:
+        idSourcePyme:
+          type: integer
+        imageProfile:
+          type: string
+        imageBanner:
+          type: string
+        idUser:
+          type: integer
+    SourceUser:
+      type: object
+      properties:
+        idSourceUser:
+          type: integer
+        imageProfile:
+          type: string
+        idUser:
+          type: integer
